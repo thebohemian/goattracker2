@@ -13,4 +13,6 @@ extern DLL_PUBLIC void stop_goattracker();
 extern DLL_PUBLIC void play_song();
 extern DLL_PUBLIC void stop_song();
 
+extern DLL_PUBLIC void *get_instrument_pointer(int);
+
 #endif

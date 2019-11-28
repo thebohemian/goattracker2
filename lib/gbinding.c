@@ -14,3 +14,12 @@ void stop_song() {
 		stopsong();
 	}
 }
+
+void *get_instrument_pointer(int instrumentNumber) {
+	if (instrumentNumber < 0 ||
+		instrumentNumber >= MAX_INSTR) {
+		return NULL;
+	}
+
+	return (void *) &instr[instrumentNumber];
+}
