@@ -2,8 +2,9 @@
 *.dat
 *.so
 linux/
-goatdata.c
+goatdata.inc
 dat2inc
 datafile
 main
+main-dynamicload
 ~*
