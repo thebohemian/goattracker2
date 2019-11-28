@@ -2,10 +2,10 @@
 # Linux makefile
 #
 
-CFLAGS+=`sdl-config --cflags` -I../lib -O0 -g3
+CFLAGS+=-I../lib -O0 -g3
 PREFIX=../linux/
 SUFFIX=
-LIBS+=`sdl-config --libs` -pthread
+LIBS+=-pthread
 DYN_LIB=-L../lib -lgoat2
 DL_LIB=-ldl
 
