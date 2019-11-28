@@ -21,11 +21,38 @@
 #define MAIN_C
 
 #include <stdio.h>
-#include "goattrk2.h"
+#include <stdlib.h>
+#include <pthread.h>
+
+#include <goattrk2.h>
+
+void *debug_thread(void *);
 
 int main(int argc, char **argv) {
-	puts("Launching GoatTracker2 ...\n");
+	pthread_t thread = { 0 };
+	puts("Starting GoatTracker 2\n");
+
+	if (pthread_create(&thread, NULL, debug_thread, NULL)) {
+		perror("Starting a thread failed");
+		exit(1);
+	}
 
 	return start_goattracker(argc, argv);
+}
+
+void stopme() {
+	// Start GDB
+	// set non-stop
+	// break stopme
+	// run
+}
+
+void *debug_thread(void *not_used) {
+	while (1) {
+		sleep(1);
+		stopme();
+	}
+
+	return NULL;
 }
 
