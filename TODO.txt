@@ -5,6 +5,9 @@ DONE:
 * beispielhafte kotlin bindung
 
 TODO:
+* 1. instrumente exportieren
+* 2. instrumente importieren
+
 * jedes File nach seinem individuellem TODO anpassen
 	- zwischenschritte schon mal ausprobieren (laden, abspielen, schliessen)
 * context einführen und auf separaten daten operieren

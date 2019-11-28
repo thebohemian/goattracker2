@@ -1,4 +1,14 @@
-GoatTracker v2.72
+It is actually based on GoatTracker 2.75.
+
+This project attempts to put goattracker into a shared library and disable the UI.
+
+The code uses existing codebase and adds a specialized library binding to it which
+is going to make it easier to interact with the functionality of the program.
+
+The library approach also allows developing a different UI which will fix the
+shortcomings of the text based UI.
+
+GoatTracker v2.73
 -----------------
 
 Editor by Lasse Öörni (loorni@gmail.com)
