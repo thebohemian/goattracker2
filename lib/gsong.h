@@ -5,8 +5,8 @@
 
 #ifndef GSONG_C
 extern INSTR instr[MAX_INSTR];
-extern unsigned char ltable[MAX_TABLES][MAX_TABLELEN];
-extern unsigned char rtable[MAX_TABLES][MAX_TABLELEN];
+extern unsigned char ltable[MAX_TABLES][MAX_TABLELEN];			// linke spalten der wave, pulse, filter und speed tabellen. first index: table type, second index: table line
+extern unsigned char rtable[MAX_TABLES][MAX_TABLELEN];			// rechte spalten der wave, pulse, filter und speed tabellen. first index: table type, second index: table line
 extern unsigned char songorder[MAX_SONGS][MAX_CHN][MAX_SONGLEN+2];
 extern unsigned char pattern[MAX_PATT][MAX_PATTROWS*4+4];
 extern char songname[MAX_STR];

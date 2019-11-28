@@ -13,3 +13,7 @@ dat2inc: dat2inc.c
 	$(CC) $(LIBS) -o dat2inc dat2inc.c
 	strip dat2inc
 
+clean:
+	$(RM) dat2inc
+	$(RM) datafile
+

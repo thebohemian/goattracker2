@@ -20,6 +20,9 @@
 
 #define GOATTRK2_C
 
+// includes static program data
+#include "goatdata.inc"
+
 #ifdef __WIN32__
 #include <windows.h>
 #endif

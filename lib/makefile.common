@@ -1,45 +1,70 @@
 # common makefile directives for linux and win32 build
+CC? = gcc
+CXX? = g++
+CXX_SO? = g++ -shared
+CFLAGS += -Ibme -Iasm -fPIC -fvisibility=hidden -O0 -g3
+CXXFLAGS += $(CFLAGS) -fpermissive
+LDFLAGS = -Wl,--no-undefined
 
-CC?=gcc
-CXX?=g++
-CXX_SO?=g++ -shared
-#CFLAGS+=-Ibme -Iasm -O3
-CFLAGS+=-Ibme -Iasm -fPIC -fvisibility=hidden -O0 -g3
-CXXFLAGS+=$(CFLAGS) -fpermissive
+TARGETS = libgoat2.so
 
-EXE=	libgoat2.so
+DAT2INC = bme/dat2inc
+DATAFILE = bme/datafile
 
-all: $(EXE)
+GOAT_OBJECTS = \
+	goattrk2.o gsong.o gorder.o gpattern.o ginstr.o gtable.o \
+	gplay.o gdisplay.o gfile.o greloc.o ghelp.o gsound.o gconsole.o gsid.o
 
-libgoat2.so: goatdata.o goattrk2.o gsong.o gorder.o gpattern.o ginstr.o gtable.o gplay.o gdisplay.o \
-gfile.o greloc.o ghelp.o gsound.o gconsole.o gsid.o \
-resid/envelope.o resid/extfilt.o resid/filter.o resid/pot.o resid/sid.o resid/wave.o resid/wave6581__ST.o \
-resid/wave6581_P_T.o resid/wave6581_PS_.o resid/wave6581_PST.o resid/wave8580__ST.o resid/wave8580_P_T.o \
-resid/wave8580_PS_.o resid/wave8580_PST.o resid/voice.o \
-resid-fp/envelopefp.o resid-fp/extfiltfp.o resid-fp/filterfp.o resid-fp/potfp.o resid-fp/sidfp.o \
-resid-fp/wavefp.o resid-fp/voicefp.o \
-asm/asmtab.o asm/chnkpool.o asm/expr.o asm/lexyy.o asm/log.o asm/membuf.o asm/membufio.o asm/namedbuf.o asm/parse.o \
-asm/pc.o asm/vec.o \
-bme/bme_gfx.o bme/bme_snd.o bme/bme_win.o bme/bme_mou.o bme/bme_kbd.o bme/bme_io.o bme/bme_end.o bme/bme.o
-	$(CXX) $(CXXFLAGS) -shared $(LIBS) -o $@ $^
+RESID_OBJECTS = \
+	resid/envelope.o resid/extfilt.o resid/filter.o resid/pot.o resid/sid.o \
+	resid/wave.o resid/wave6581__ST.o resid/wave6581_P_T.o resid/wave6581_PS_.o \
+	resid/wave6581_PST.o resid/wave8580__ST.o resid/wave8580_P_T.o \
+	resid/wave8580_PS_.o resid/wave8580_PST.o resid/voice.o
 
-goattrk2.dat: player.s altplayer.s chargen.bin palette.bin cursor.bin bcursor.bin goattrk2.bmp goattrk2.seq
-	./bme/datafile $@ goattrk2.seq
+RESID_FP_OBJECTS = \
+	resid-fp/envelopefp.o resid-fp/extfiltfp.o resid-fp/filterfp.o \
+	resid-fp/potfp.o resid-fp/sidfp.o resid-fp/wavefp.o resid-fp/voicefp.o
 
-goatdata.c: goattrk2.dat
-	./bme/dat2inc $< $@
+ASM_OBJECTS = \
+	asm/asmtab.o asm/chnkpool.o asm/expr.o asm/lexyy.o asm/log.o \
+	asm/membuf.o asm/membufio.o asm/namedbuf.o asm/parse.o \
+	asm/pc.o asm/vec.o
+
+BME_OBJECTS = \
+	bme/bme_gfx.o bme/bme_snd.o bme/bme_win.o bme/bme_mou.o bme/bme_kbd.o \
+	bme/bme_io.o bme/bme_end.o bme/bme.o
+
+OBJECTS = $(GOAT_OBJECTS) $(RESID_OBJECTS) $(RESID_FP_OBJECTS) $(ASM_OBJECTS) \
+	$(BME_OBJECTS)
+
+DATAFILE_FILES = player.s altplayer.s chargen.bin palette.bin cursor.bin bcursor.bin goattrk2.bmp goattrk2.seq
+
+all: $(TARGETS)
+
+goattrk2.o: goatdata.inc
+
+libgoat2.so: $(OBJECTS)
+	$(CXX) $(LDFLAGS) -shared -o $@ $^ $(LIBS)
+
+goattrk2.dat: $(DATAFILE) $(DATAFILE_FILES)
+	$(DATAFILE) $@ goattrk2.seq
+
+$(DATAFILE):
+	make -C bme datafile
+
+$(DAT2INC):
+	make -C bme dat2inc
+
+goatdata.inc: goattrk2.dat $(DAT2INC)
+	$(DAT2INC) $< $@
 
 clean:
-	$(RM) *.o *~
-	$(RM) *.so
-	$(RM) asm/*.o
-	$(RM) bme/*.o
-	$(RM) resid/*.o
-	$(RM) resid-fp/*.o
-	$(RM) goatdata.c
+	make -C bme clean
+	$(RM) $(TARGETS)
+	$(RM) $(OBJECTS)
 	$(RM) $(EXE)
+	$(RM) goattrk2.data
+	$(RM) goatdata.inc
+	$(RM) *~
 
-veryclean:
-	$(RM) bme/dat2inc
-	$(RM) bme/datafile
 

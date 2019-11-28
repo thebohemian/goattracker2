@@ -9,8 +9,8 @@
 
 #ifndef GTABLE_C
 extern int etview[MAX_TABLES];
-extern int etnum;
-extern int etpos;
+extern int etnum;						// tablenumber: 0 -> wave, etc.
+extern int etpos;						// table line + 1
 extern int etcolumn;
 extern int etlock;
 extern int etmarknum;
@@ -28,7 +28,7 @@ void optimizetable(int num);
 void deleteinstrtable(int i);
 int gettablelen(int num);
 int gettablepartlen(int num, int pos);
-void gototable(int num, int pos);
+void gototable(int num, int pos);				// go to table at line [pos+1], 0 -> wave, 1 -> pulse, 2 -> filter, 3 -> speed
 void settableview(int num, int pos);
 void settableviewfirst(int num, int pos);
 void validatetableview(void);
