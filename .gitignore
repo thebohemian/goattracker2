@@ -1,6 +1,7 @@
 *.o
 *.dat
 *.so
+*.jar
 linux/
 goatdata.inc
 dat2inc

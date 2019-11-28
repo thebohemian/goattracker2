@@ -1,0 +1,12 @@
+DONE:
+* startet nicht -> inkomp mit config datei -> löschen geht
+* ausgewählte files in eigenes Directory (library)
+* beispielhafte direkte native bindung
+* beispielhafte kotlin bindung
+
+TODO:
+* jedes File nach seinem individuellem TODO anpassen
+	- zwischenschritte schon mal ausprobieren (laden, abspielen, schliessen)
+* context einführen und auf separaten daten operieren
+* optimieren, optimieren, optimieren
+	
