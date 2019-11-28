@@ -6,12 +6,17 @@ import com.sun.jna.Pointer
 
 interface LibGoat2 : Library
 {
-	fun start_goattracker(argc: Int, argv: Array<String>)
+	fun start_goattracker(argc: Int, argv: Array<String>): Int
+
+	fun stop_goattracker()
+
+	fun play_song()
+
+	fun stop_song()
 
 	/** Convenience method for more kotlinesque invocation */
-	fun start_goattracker(argc: Int, argv: List<String>) {
+	fun start_goattracker(argc: Int, argv: List<String>) =
 		start_goattracker(argc, argv.toTypedArray())
-	}
 
 	companion object {
 		private val LIBRARY_NAME = "goat2"

@@ -7,4 +7,9 @@ val lib = LibGoat2.load();
 println("loaded library: ${lib}. Now starting GoatTracker2 through native invocation.")
 
 // not providing any commandline arguments
-lib.start_goattracker(0, emptyArray())
+Thread {
+	lib.start_goattracker(0, emptyArray())
+}.apply {
+	isDaemon = true
+	start()
+}
