@@ -4,8 +4,6 @@
 #ifndef GOATTRK2_H
 #define GOATTRK2_H
 
-#define DLL_PUBLIC __attribute__ ((visibility ("default")))
-
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +13,8 @@
 #include <sys/stat.h>
 #include <math.h>
 #include "bme/bme.h"
+
+#include "goat2.h"
 
 #include "gcommon.h"
 #include "gconsole.h"
@@ -124,10 +124,4 @@ void calculatefreqtable(void);
 void setspecialnotenames(void);
 void readscalatuningfile(void);
 
-extern DLL_PUBLIC int start_goattracker(int, char **);
-
-/*
-extern "C" {
-}
-*/
 #endif

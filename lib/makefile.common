@@ -12,6 +12,7 @@ DAT2INC = bme/dat2inc
 DATAFILE = bme/datafile
 
 GOAT_OBJECTS = \
+	goat2.o \
 	goattrk2.o gsong.o gorder.o gpattern.o ginstr.o gtable.o \
 	gplay.o gdisplay.o gfile.o greloc.o ghelp.o gsound.o gconsole.o gsid.o
 
