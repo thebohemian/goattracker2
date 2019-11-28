@@ -6,6 +6,8 @@ DONE:
 
 TODO:
 * 1. instrumente exportieren
+	X instrument daten 
+	- tabellen
 * 2. instrumente importieren
 
 * jedes File nach seinem individuellem TODO anpassen
