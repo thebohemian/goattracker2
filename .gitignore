@@ -1,7 +1,9 @@
 *.o
 *.dat
+*.so
 linux/
-src/goatdata.c
-src/bme/dat2inc
-src/bme/datafile
-
+goatdata.c
+dat2inc
+datafile
+main
+~*
