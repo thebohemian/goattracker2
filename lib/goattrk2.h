@@ -14,7 +14,7 @@
 #include <math.h>
 #include "bme/bme.h"
 
-#include "goat2.h"
+#include "gbinding.h"
 
 #include "gcommon.h"
 #include "gconsole.h"

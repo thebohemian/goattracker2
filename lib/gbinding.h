@@ -1,8 +1,8 @@
 // TODO: Doku
 // TODO: Verwendung checken
 
-#ifndef GOAT2_H
-#define GOAT2_H
+#ifndef GBINDING_H
+#define GBINDING_H
 
 /** Place this in front of every function that is to be exported */
 #define DLL_PUBLIC __attribute__ ((visibility ("default")))
