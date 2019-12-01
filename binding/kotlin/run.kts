@@ -1,5 +1,5 @@
-import com.github.thebohemian.libgoattracker.LibGoat2
-import com.github.thebohemian.libgoattracker.ParameterTableReference
+import com.github.thebohemian.libgoat2.LibGoat2
+import com.github.thebohemian.libgoat2.ParameterTableReference
 
 println("loading shared library ...")
 

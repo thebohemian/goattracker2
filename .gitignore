@@ -2,6 +2,9 @@
 *.dat
 *.so
 *.jar
+.idea
+.gradle
+build/
 linux/
 goatdata.inc
 dat2inc
