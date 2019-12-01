@@ -176,14 +176,18 @@ int saveinstrument(void)
   return 0;
 }
 
-void loadsong(void)
+void loadsong(void) {
+  do_loadsong(songfilename);
+}
+
+void do_loadsong(const char *filename)
 {
   int c;
   int ok = 0;
   char ident[4];
   FILE *handle;
 
-  handle = fopen(songfilename, "rb");
+  handle = fopen(filename, "rb");
 
   if (handle)
   {

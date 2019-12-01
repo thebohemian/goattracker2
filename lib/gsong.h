@@ -19,6 +19,7 @@ extern int highestusedinstr;
 #endif
 
 void loadsong(void);
+void do_loadsong(const char *);
 void mergesong(void);
 void loadinstrument(void);
 int savesong(void);
