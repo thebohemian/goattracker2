@@ -1,17 +1,11 @@
 DONE:
-* startet nicht -> inkomp mit config datei -> löschen geht
-* ausgewählte files in eigenes Directory (library)
-* beispielhafte direkte native bindung
-* beispielhafte kotlin bindung
+* doesnt start -> config file incompatibility, just delete
+* separate folder for lib
+* example native binding
+* example kotlin binding
+* allow access to all song data
 
 TODO:
-* 1. instrumente exportieren
-	X instrument daten 
-	- tabellen
-* 2. instrumente importieren
-
-* jedes File nach seinem individuellem TODO anpassen
-	- zwischenschritte schon mal ausprobieren (laden, abspielen, schliessen)
-* context einführen und auf separaten daten operieren
-* optimieren, optimieren, optimieren
-	
+* play/stop test sound
+* play/stop note	
+* export instrument data as YAML
