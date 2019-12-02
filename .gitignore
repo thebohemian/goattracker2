@@ -9,6 +9,6 @@ linux/
 goatdata.inc
 dat2inc
 datafile
-main
+src/main
 main-dynamicload
 ~*
